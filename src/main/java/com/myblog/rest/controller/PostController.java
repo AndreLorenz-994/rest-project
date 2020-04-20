@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myblog.rest.model.Post;
 import com.myblog.rest.service.PostService;
@@ -17,14 +18,14 @@ public class PostController {
 	@Autowired
 	PostService postService;
 
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	@RequestMapping(value = "protected/create", method = RequestMethod.POST)
 	public String createPost(@RequestParam String postTitle, @RequestParam String postDesc) {
 		postService.createPost(postTitle, postDesc);
 		return "Post saved";
 	}
 	
-	@RequestMapping(value="/posts", method = RequestMethod.GET)
-	public List<Post> getPosts() {
+	@RequestMapping(value="protected/posts", method = RequestMethod.GET)
+	public @ResponseBody List<Post> getPosts() {
 	    return postService.getAllPost();
 	}	
 

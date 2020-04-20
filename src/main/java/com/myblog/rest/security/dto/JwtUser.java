@@ -1,4 +1,4 @@
-package com.myblog.rest.security;
+package com.myblog.rest.security.dto;
 
 import java.util.Collection;
 
@@ -8,25 +8,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class JwtUser implements UserDetails {
-	
-	private static final long serialVersionUID = -8040365955348355404L;
-	private final String id;
+
 	private final String username;
 	private final String password;
 	private final Collection<? extends GrantedAuthority> authorities;
 	private final boolean enabled;
 
-	public JwtUser(String id, String username, String password, Collection<? extends GrantedAuthority> authorities, boolean enabled) {
-		this.id = id;
+	public JwtUser(String username, String password, Collection<? extends GrantedAuthority> authorities,
+			boolean enabled) {
 		this.username = username;
 		this.password = password;
 		this.authorities = authorities;
 		this.enabled = enabled;
-	}
-
-	@JsonIgnore
-	public String getId() {
-		return id;
 	}
 
 	@Override
@@ -65,7 +58,7 @@ public class JwtUser implements UserDetails {
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return enabled;
 	}
+
 }

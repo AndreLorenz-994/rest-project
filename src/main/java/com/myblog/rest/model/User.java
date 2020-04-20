@@ -12,20 +12,12 @@ public class User {
 	private String id;
 	
 	private String username;
-	
+
 	private String password;
-	
-	private List<AuthorityName> authorities;
-	
+
 	private Boolean enabled;
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
+	private List<Authority> authorities;
 
 	public String getUsername() {
 		return username;
@@ -41,15 +33,7 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}	
-	
-    public List<AuthorityName> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(List<AuthorityName> authorities) {
-        this.authorities = authorities;
-    }
+	}
 
 	public Boolean getEnabled() {
 		return enabled;
@@ -57,6 +41,14 @@ public class User {
 
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
-	}	
-	
+	}
+
+	public List<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
 }
