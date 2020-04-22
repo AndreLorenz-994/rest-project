@@ -38,7 +38,7 @@ public class AuthenticationRestController {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-	@RequestMapping(value = "public/login", method = RequestMethod.POST)
+	@RequestMapping(value = "blog/login", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest,
 			HttpServletResponse response) throws AuthenticationException, JsonProcessingException {
 

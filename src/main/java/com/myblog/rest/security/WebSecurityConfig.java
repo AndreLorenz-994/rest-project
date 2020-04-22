@@ -74,7 +74,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 						// HttpMethod.GET,
 						"/", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js")
 				.permitAll()
-				.antMatchers("/public/**").permitAll().anyRequest().authenticated();
+				.antMatchers("/blog/**").permitAll().anyRequest().authenticated();
 
 		// Filtro Custom JWT
 		httpSecurity.addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);

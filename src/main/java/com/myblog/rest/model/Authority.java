@@ -14,6 +14,10 @@ public class Authority {
 	private AuthorityName name;
 
 	private List<User> users;
+	
+	public Authority(AuthorityName name) {
+		this.name = name;
+	}
 
 	public String getId() {
 		return id;
