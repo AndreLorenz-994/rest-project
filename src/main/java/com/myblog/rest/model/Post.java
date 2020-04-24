@@ -13,12 +13,7 @@ public class Post {
 	
 	private String postDesc;
 	
-	public Post() {}	
-	
-	public Post(String postTitle, String postDesc) {
-		this.postTitle = postTitle;
-		this.postDesc = postDesc;
-	}
+	private User user;	
 
 	public String getId() {
 		return id;
@@ -42,6 +37,14 @@ public class Post {
 
 	public void setPostDesc(String postDesc) {
 		this.postDesc = postDesc;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 		
 }

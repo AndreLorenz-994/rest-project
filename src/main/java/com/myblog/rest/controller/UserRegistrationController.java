@@ -16,12 +16,13 @@ public class UserRegistrationController {
 	private UserService userService;
 	
 	@RequestMapping(value = "blog/register", method = RequestMethod.POST)
-	public boolean addUser(@RequestBody User user) {
-		if (userService.findByUsername(user)) {
-			return false;
+	public String addUser(@RequestBody User user) {
+		String username = user.getUsername();
+		if (userService.findByUsername(username) != null) {
+			return "There is another user with that username";
 		}
 		userService.register(user);
-		return true;
+		return "Registered user";
 	}
 	
 }

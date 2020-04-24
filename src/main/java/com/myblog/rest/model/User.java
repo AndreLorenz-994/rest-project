@@ -18,6 +18,8 @@ public class User {
 	private Boolean enabled;
 
 	private List<Authority> authorities;
+	
+	private List<Post> posts;
 
 	public String getUsername() {
 		return username;
@@ -49,6 +51,14 @@ public class User {
 
 	public void setAuthorities(List<Authority> authorities) {
 		this.authorities = authorities;
+	}
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 
 }
