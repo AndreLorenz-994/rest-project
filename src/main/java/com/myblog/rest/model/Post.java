@@ -1,27 +1,14 @@
 package com.myblog.rest.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Posts")
 public class Post {
-
-	@Id
-	private String id;
 	
 	private String postTitle;
 	
 	private String postDesc;
 	
 	private User user;	
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
 
 	public String getPostTitle() {
 		return postTitle;
