@@ -32,16 +32,11 @@ public class UserService {
 	    user.setPassword(passwordEncoder.encode(registration.getPassword()));
 	    user.setEnabled(true);
 	    user.setAuthorities(Arrays.asList(new Authority(AuthorityName.ROLE_USER)));
-	    // se non aggiungo riga 35 mi da null pointer exception causato da riga 40
-	    user.setPosts(Arrays.asList(new Post()));
 		userRepository.save(user);
 	}
 	
 	public void addPosts(User user, Post post) {
-		List<Post> posts = user.getPosts();
-		posts.add(post);
-		//user.getPosts().add(post);
+		user.addPosts(post);
 		userRepository.save(user);
-		// user not saved receive an error
 	}	
 }

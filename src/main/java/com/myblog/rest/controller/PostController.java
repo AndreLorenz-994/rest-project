@@ -29,8 +29,6 @@ public class PostController {
 	public String createPost(@RequestBody Post post ) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findByUsername(auth.getName());
-		post.setUser(user);
-		//Post currentPost = postService.createPost(post);
 		userService.addPosts(user, post);
 		return "Post saved";
 	}

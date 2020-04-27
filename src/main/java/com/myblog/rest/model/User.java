@@ -1,5 +1,6 @@
 package com.myblog.rest.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -59,6 +60,13 @@ public class User {
 
 	public void setPosts(List<Post> posts) {
 		this.posts = posts;
+	}
+	
+	public boolean addPosts(Post post) {
+		if(this.getPosts() == null) {
+			this.posts = new ArrayList<>();			
+		}
+		return this.posts.add(post);
 	}
 
 }
