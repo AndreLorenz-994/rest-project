@@ -13,14 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myblog.rest.model.Post;
 import com.myblog.rest.model.User;
-import com.myblog.rest.service.PostService;
 import com.myblog.rest.service.UserService;
 
 @RestController
 public class PostController {
-
-	@Autowired
-	PostService postService;
 	
 	@Autowired
 	UserService userService;
@@ -37,7 +33,7 @@ public class PostController {
 	public @ResponseBody List<Post> getPosts() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = userService.findByUsername(auth.getName());		
-	    return postService.getAllPost(user);
+	    return user.getPosts();
 	}	
 
 }
